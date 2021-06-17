@@ -10,6 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path="api/gardener")
 public class GardenerController {
+    //@GetMapping("/gardener")
     private final GardenerService gardenerService;
     @Autowired
     public GardenerController(GardenerService gardenerService){
@@ -33,6 +34,7 @@ public class GardenerController {
     public void updateGardener(@PathVariable("gardenerId") Long gardenerId, @RequestParam(required=false) String name,
                               @RequestParam(required = false) String email, @RequestParam(required = false)
                               @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate dob){
+        gardenerService.updateGardener(gardenerId);
 
     }
 
